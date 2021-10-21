@@ -36,8 +36,9 @@ describe("eCommerece E2E", ()=> {
 
        //asserting the table total with our calculated value
        chaiAssert(priceTot).to.be.equal(actPrice)
-
        $(".btn-success").click()
+
+       //Final purches order
        $("#country").setValue("Ind")
        $(".lds-ellipsis").waitForExist({reverse:true})
        $("=India").click()
