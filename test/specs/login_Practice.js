@@ -1,0 +1,31 @@
+const exceptchai = require('chai').expect
+describe('Login Page Authentication', ()=> {
+    it('login With wrong inputs',()=>{
+        browser.url('https://the-internet.herokuapp.com/login')
+        browser.pause(2000)
+        $('#username').setValue('admin')
+        $('#password').setValue('admin')
+        browser.pause(3000)
+        $('//*[@type="submit"]').click()
+        console.log($('#flash').getText())
+    })
+
+    it('login with correct inputs',()=>{
+        flash = $('#flash')
+        browser.url('https://the-internet.herokuapp.com/login')
+        browser.pause(2000)
+        $('#username').setValue('tomsmith')
+        $('#password').setValue('SuperSecretPassword!')
+        browser.pause(3000)
+        $('//*[@type="submit"]').click()
+        console.log($('#flash').getText())
+        console.log($('h2').getText())
+        console.log($('h4').getText())
+        browser.pause(3000)
+        $('//*[@href="/logout"]').click()
+        console.log(flash)
+        browser.pause(2000)
+        expect(flash).toHaveTextContaining('You logged out of the secure area!')
+        //exceptchai(flash.getText()).to.be.equal('You logged out of the secure area!')
+    })
+})
