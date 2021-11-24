@@ -1,6 +1,6 @@
 const exceptchai = require('chai').expect
 describe('Login Page Authentication', ()=> {
-    it('login With wrong inputs',()=>{
+    xit('login With wrong inputs',()=>{
         browser.url('https://the-internet.herokuapp.com/login')
         browser.pause(2000)
         $('#username').setValue('admin')
@@ -10,7 +10,7 @@ describe('Login Page Authentication', ()=> {
         console.log($('#flash').getText())
     })
 
-    it('login with correct inputs',()=>{
+    xit('login with correct inputs',()=>{
         flash = $('#flash')
         browser.url('https://the-internet.herokuapp.com/login')
         browser.pause(2000)
